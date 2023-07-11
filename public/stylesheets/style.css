@@ -1,4 +1,4 @@
-.brand-logo {
+/* .brand-logo {
   margin-left: 15px;
 }
 
@@ -17,4 +17,13 @@
 
 .collection-item form {
   margin-top: -5px;
+} */
+
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 34px;
 }
+
