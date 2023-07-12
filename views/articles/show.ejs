@@ -1,0 +1,74 @@
+<%- include('../partials/header') %>
+<section id="show-page">
+    <div>Title</div>
+    <div>
+        <%= article.title %>
+    </div>
+    <div>Content</div>
+    <div> <%= article.content %> </div>
+    <div>Created Year</div>
+    <div> <%= article.createdYear %> </div>
+
+</section>
+
+
+<h2>Reviews</h2>
+<% if (user) { %>
+<form id="add-review-form" method="POST" action="/articles/<%= article._id %>/review">
+<label>Review</label>
+<textarea name="content"></textarea>
+<label>Rating:</label>
+<select name="rating"></select>
+    <options value="1">1</options>
+    <options value="2">2</options>
+    <options value="3">3</options>
+    <options value="4">4</options>
+    <options value="5">5</options>
+</select>
+<input type="submit" value="Add Review">
+<% } else { %>
+    <p>Please Login to leave a review</p>
+    <% } %>
+</form>
+
+<!--//List of reviews-->
+<% if (article.reviews.length) { %>
+<table>
+    <thread>
+        <tr>
+        <th>User</th>
+        <th>Content</th>
+        <th>Rating</th>
+        </tr>
+    </thread>
+    <tbody>
+        <% article.review.forEach(function(r) { %>
+        <tr>
+            <td class="review-user"> <%= r.userName %> </td> 
+            <td> <%= r.content %> </td>
+            <td> <%= r.rating %> </td>
+            <td>
+                <% if (user && user._id.equals(r.user)) { %>
+                    <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
+                    <button type="submit">X</button>
+                    </form>
+<% } %>
+            </td>
+        </tr>
+<% } ); %>
+    </tbody>
+</table>
+<% } else { %>
+<h5>No Rewiews Yet</h5>
+<% } %>
+
+
+
+
+
+
+
+
+
+
+<%- include('../partials/footer') %>

@@ -20,6 +20,7 @@ require('./config/passport');
 const indexRouter = require('./routes/index');
 const articlesRouter = require('./routes/articles');
 
+// const reviewsRouter = require('./routes/reviews');
 
 // create the Express app
 const app = express();
@@ -55,6 +56,9 @@ app.use(function (req, res, next) {
 // mount all routes with appropriate base paths
 app.use('/', indexRouter);
 app.use('/articles', articlesRouter);
+
+// app.use('/', reviewsRouter);
+
 
 
 

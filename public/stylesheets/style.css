@@ -18,7 +18,9 @@
 .collection-item form {
   margin-top: -5px;
 } */
-
+* {
+  background-color: lightpink;
+}
 
 .login {
   display: flex;
@@ -27,3 +29,9 @@
   height: 34px;
 }
 
+.allArticle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 34px;
+}

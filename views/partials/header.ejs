@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <title>skincare articles</title>
+    <title>Skincare Articles</title>
 </head>
 <body>
     <nav>
-      <a href="/articles">ALL ARTICLE</a>
+      <a href="/articles" class="allArticle">ALL SKINCARE ARTICLES</a>
         <% if (user) { %>
-          <a href="/article/new" >ADD ARTICLE</a>
+          <a href="/articles/new" >ADD ARTICLE</a>
           <a href="/logout">LOG OUT</a>
         <% } else { %>
           <a href="/auth/google" class="login">LOG IN</a>

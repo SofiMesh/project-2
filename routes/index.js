@@ -1,7 +1,7 @@
 
-// const express = require('express');
-var router = require('express').Router();
-// const router = express.Router();
+const express = require('express');
+// const router = require('express').Router();
+const router = express.Router();
 const passport = require('passport');
 
 // The root route renders our only view
