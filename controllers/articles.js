@@ -19,7 +19,7 @@ async function show(req,res) {
     try {
     const articleFromTheDatabase = await ArticleModel
                                         .findById(req.params.id)
-                                        // .exec();
+                                        .exec();
     
     res.render("articles/show", {
         article: articleFromTheDatabase

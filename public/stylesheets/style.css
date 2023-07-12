@@ -35,3 +35,7 @@
   align-items: center;
   height: 34px;
 }
+
+#new-form *, #add-review-form * {
+  font-size: 20px;
+}

@@ -1,6 +1,6 @@
 const ArticleModel = require('../models/article');
 
-module.export = {
+module.exports = {
     create, 
     delete: deleteReview
 }
@@ -9,9 +9,9 @@ async function deleteReview(req, res, next) {
     try {
         const articleDoc = await ArticleModel.findOne({'reviews._id': req.params.id, 'reviews.user': req.user._id});
         if(!articleDoc) return res.redirect('/articles')
-        movieDoc. reviews.remove(req.params.id)
+        articleDoc. reviews.remove(req.params.id)
         await articleDoc.save();
-        res.redirect('/articles/${articleDoc._id');
+        res.redirect(`/articles/${articleDoc._id}`);
     } catch(err) {
         next(err)
     }
@@ -27,7 +27,7 @@ async function create(req, res) {
     articleFromTheDb.reviews.push(req.body);
     await articleFromTheDb.save();
     console.log(articleFromTheDb);
-    res.redirect(`/movies/${req.params.id}`)
+    res.redirect(`/articles/${req.params.id}`)
     } catch(err) {
         res.send(err)
     }

@@ -9,5 +9,4 @@ router.get('/new', isLoggedIn, articlesCtrl.new);
 router.get('/:id', articlesCtrl.show);
 
 router.post('/', articlesCtrl.create);
-
 module.exports = router;
