@@ -53,17 +53,20 @@
                 <% if (user && user._id.equals(r.user)) { %>
                     <form action="/reviews/<%= r._id %>?_method=DELETE" method="POST">
                     <button type="submit">X</button>
-                    
+                    </form>
+                   <a href="/articles/<%= article._id %>/review/<%= r._id %>"><button>Edit</button></a>
 <% } %>
 
             </td>
         </tr>
-<% } ); %>
+<% } ); %>  
+
     </tbody>
 </table>
 <% } else { %>
 <h5>No Rewiews Yet</h5>
 <% } %>
+
 
 
 

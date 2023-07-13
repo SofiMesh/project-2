@@ -3,32 +3,53 @@ const ArticleModel = require('../models/article');
 module.exports = {
     create, 
     delete: deleteReview,
-    edit: editReview
-}
+    edit: editReview,
+    update
+}  
 
 //edit reviews
 
 async function editReview(req, res, next) {
-    try {
-      const articleDoc = await ArticleModel.findOne({ 'reviews._id': req.params.id, 'reviews.user': req.user._id });
-      if (!articleDoc) {
-        return res.redirect('/articles');
-      }
-      const review = articleDoc.reviews.find((review) => review._id.toString() === req.params.id);
-      if (!review) {
-        throw new Error('Review not found');
-      }
-      review.edited = true;  
-      await articleDoc.save();
-      res.redirect(`/articles/${articleDoc._id}`);
-    } catch (err) {
-      next(err);
-    }
+    const article = await ArticleModel.findById(req.params.articleId)
+    console.log(article)
+    const review = article.reviews.id(req.params.id)
+    console.log(review)
+    res.render('articles/edit', {review, articleId:req.params.articleId})
+
+//     try {
+//       const articleDoc = await ArticleModel.findOne({ 'reviews._id': req.params.id, 'reviews.user': req.user._id });
+//       if (!articleDoc) {
+//         return res.redirect('/articles');
+//       }
+//       const review = articleDoc.reviews.find((review) => review._id.toString() === req.params.id);
+//       if (!review) {
+//         throw new Error('Review not found');
+//       }
+       
+//       await articleDoc.save();
+//       res.redirect(`/articles/${articleDoc._id}`);
+//     } catch (err) {
+//       next(err);
+//     }
   }
 
+  async function update(req, res) {
+    try {
+        const article = await ArticleModel.findById(req.params.articleId)
+        console.log(article)
+        const review = article.reviews.id(req.params.id)
+        console.log(review)
+       review.content = req.body.content
+       await article.save()
 
 
-
+       res.redirect(`/articles/${req.params.articleId}`);
+    } catch (err) {
+       console.error(err);
+       res.redirect('/reviews');
+    }
+ }
+ 
 
 
 // async function editReview(req, res, next) {

@@ -23,7 +23,7 @@ const reviewSchema = new Schema({
 const articleSchema = new mongoose.Schema({
     title: { type: String, required: true },
     created: {
-        type: Date,
+        type: Number,
         default: function() {
             return new Date().getFullYear();
         },

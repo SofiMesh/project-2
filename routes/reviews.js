@@ -7,6 +7,7 @@ router.post('/articles/:id/review', reviewsCtrl.create);
 
 router.delete('/reviews/:id', reviewsCtrl.delete);
 
-router.put('/reviews/:id', reviewsCtrl.edit)
-
+//for edit
+router.put('/articles/:articleId/review/:id', reviewsCtrl.update)
+router.get('/articles/:articleId/review/:id', reviewsCtrl.edit)
 module.exports = router;

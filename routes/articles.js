@@ -9,4 +9,8 @@ router.get('/new', isLoggedIn, articlesCtrl.new);
 router.get('/:id', articlesCtrl.show);
 
 router.post('/', articlesCtrl.create);
+
+//for edit
+// router.get('/:id/edit', articlesCtrl.edit);
+
 module.exports = router;
