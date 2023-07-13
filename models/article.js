@@ -24,14 +24,14 @@ const articleSchema = new mongoose.Schema({
     title: { type: String, required: true },
     created: {
         type: Date,
-        defoult: function() {
+        default: function() {
             return new Date().getFullYear();
         },
         min: 2023
     },
     reviews: [reviewSchema], 
 }, {
-        timestamp: true
+        timestamps: true
     }
 );
 

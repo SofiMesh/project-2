@@ -2,8 +2,47 @@ const ArticleModel = require('../models/article');
 
 module.exports = {
     create, 
-    delete: deleteReview
+    delete: deleteReview,
+    edit: editReview
 }
+
+//edit reviews
+
+async function editReview(req, res, next) {
+    try {
+      const articleDoc = await ArticleModel.findOne({ 'reviews._id': req.params.id, 'reviews.user': req.user._id });
+      if (!articleDoc) {
+        return res.redirect('/articles');
+      }
+      const review = articleDoc.reviews.find((review) => review._id.toString() === req.params.id);
+      if (!review) {
+        throw new Error('Review not found');
+      }
+      review.edited = true;  
+      await articleDoc.save();
+      res.redirect(`/articles/${articleDoc._id}`);
+    } catch (err) {
+      next(err);
+    }
+  }
+
+
+
+
+
+
+// async function editReview(req, res, next) {
+//     try {
+//         const articleDoc = await ArticleModel.findOne({'reviews._id': req.params.id, 'reviews.user': req.user._id});
+//         if(!articleDoc) return res.redirect('/articles')
+//         articleDoc. reviews.edit(req.params.id)
+//         await articleDoc.save();
+//         res.redirect(`/articles/${articleDoc._id}`);
+//         } catch (err) {
+//         next(err);
+//     }
+// }
+
 
 async function deleteReview(req, res, next) {
     try {

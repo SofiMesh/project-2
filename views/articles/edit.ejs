@@ -1,0 +1,32 @@
+<%- include('../partials/header') %>
+
+<h1>Edit Review</h1>
+<form id="edit-review" method="POST" action="/reviews/edit<%= review.id %>">
+<label>Title</label>
+<input type="text" id="title" name="title" value="<%=review.title %>">
+
+<label>Context</label>
+<input type="text" id="context" name="context" value="<%=review.context %>">
+
+
+<label>createdYear</label>
+<input type="number" id="createdYear" name="createdYear" value="<%=review.createdYear %>">
+
+<% if (user && user._id.equals(r.user)) { %>
+    <form action="/reviews/<%= r._id %>?_method=PUT" method="POST">
+    <button type="submit">edit</button></form>
+    </form>
+<% } %>
+
+
+<button type="submit">Edit</button>
+</form>
+
+
+
+
+
+
+
+
+<%- include('../partials/footer') %>

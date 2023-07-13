@@ -10,7 +10,7 @@ module.exports = {
 
 async function index(req, res) {
     const articles = await ArticleModel.find({});
-    console.log(articles);
+    // console.log(articles);
     res.render("articles/index", { title: "All Articles", articles: articles });
 }
 
@@ -35,6 +35,9 @@ function newArticle(req, res) {
 }
 
 async function create(req, res) {
+    // for (let key in req.body) {
+    //     if (req.body[key] === "") delete req.body[key];
+    // }
     try {
         const articleFromTheDatabase = await ArticleModel.create(req.body);
         console.log(articleFromTheDatabase);

@@ -7,4 +7,6 @@ router.post('/articles/:id/review', reviewsCtrl.create);
 
 router.delete('/reviews/:id', reviewsCtrl.delete);
 
+router.put('/reviews/:id', reviewsCtrl.edit)
+
 module.exports = router;
