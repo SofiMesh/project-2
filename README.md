@@ -33,3 +33,8 @@ This is your passport boilerplate.
 #### Make a commit 
 
 ```git commit -m "setup up oauth and User Model"```
+
+
+1. project name is skincare articles, where people share their experience with each other how to better take care of skin.
+2. other people will be able to review articles, but if later thei changes their mind about review they can either edit or delete only their own reviews.
+3. 
