@@ -10,12 +10,12 @@ module.exports = {
 
 async function index(req, res) {
     const articles = await ArticleModel.find({});
-    // console.log(articles);
+    console.log(articles);
     res.render("articles/index", { title: "All Articles", articles: articles });
 }
 
 async function show(req,res) {
-    // console.log(req.user)
+    console.log(req.user)
     try {
     const articleFromTheDatabase = await ArticleModel
                                         .findById(req.params.id)
@@ -35,9 +35,9 @@ function newArticle(req, res) {
 }
 
 async function create(req, res) {
-    // for (let key in req.body) {
-    //     if (req.body[key] === "") delete req.body[key];
-    // }
+    for (let key in req.body) {
+        if (req.body[key] === "") delete req.body[key];
+    }
     try {
         const articleFromTheDatabase = await ArticleModel.create(req.body);
         console.log(articleFromTheDatabase);
@@ -45,6 +45,6 @@ async function create(req, res) {
     }
     catch (err) {
         console.log(err);
-        res.render("articles/new", { errorMsg: err.message});
+        res.render("articles/new", { errorMsg: err.message });
     }
 }

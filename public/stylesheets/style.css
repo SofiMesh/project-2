@@ -36,6 +36,10 @@
   height: 34px;
 }
 
-#new-form *, #add-review-form * {
+/* #new-form *, #add-review-form * {
   font-size: 20px;
-}
+  position: relative;
+  top: 20vmin
+
+} */
+
