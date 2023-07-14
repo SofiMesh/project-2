@@ -36,5 +36,7 @@ This is your passport boilerplate.
 
 
 1. project name is skincare articles, where people share their experience with each other how to better take care of skin.
-2. other people will be able to review articles, but if later thei changes their mind about review they can either edit or delete only their own reviews.
-3. 
+2. other people will be able to review articles, but if later they changes their mind about review they can either edit or delete only their own reviews.
+3. https://docs.google.com/presentation/d/1sXa_JbBr-4pLJBeBpCYX4zoVkRDVp4CZO4PNjfxRfnU/edit#slide=id.g2580a35fd24_0_6
+
+4. https://cautious-raincoat-ray.cyclic.app/articles/new
